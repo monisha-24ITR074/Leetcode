@@ -36,10 +36,10 @@ class Solution {
         }
         return max;
     }
-    private int getSum(int[] piles){
+    private int getSum(int[] weights){
         int sum = 0;
-        for(int pile : piles){
-            sum += pile;
+        for(int weight : weights){
+            sum+= weight;
         }
     return sum;
     }
