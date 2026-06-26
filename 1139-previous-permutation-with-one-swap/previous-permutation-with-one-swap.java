@@ -4,7 +4,7 @@ class Solution {
         while(i>=0 && arr[i]<=arr[i+1]){
             i--;
         }
-        if(i<0) return arr; 
+        if(i<0) return arr;
         int j=arr.length-1;
         while(arr[j] >= arr[i]) {
             j--;
@@ -12,6 +12,7 @@ class Solution {
         while(j>0 && arr[j]==arr[j-1]){
             j--;
         }
+
         int temp=arr[i];
         arr[i]=arr[j];
         arr[j]=temp;
