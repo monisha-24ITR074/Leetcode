@@ -1,16 +1,17 @@
 class Solution {
     public int[] leftRightDifference(int[] nums) {
-        int n=nums.length;
-        int[] res=new int[n];
+        int n = nums.length;
+        int[] res = new int[n];
         int tsum=0;
         for(int i=0;i<n;i++){
-            tsum+=nums[i];
+            tsum=tsum+nums[i];
         }
         int lsum=0;
         for(int i=0;i<n;i++){
             int rsum = tsum-lsum-nums[i];
             res[i]=Math.abs(lsum-rsum);
-            lsum+=nums[i];
+            lsum=lsum+nums[i];
+
         }
         return res;
     }
