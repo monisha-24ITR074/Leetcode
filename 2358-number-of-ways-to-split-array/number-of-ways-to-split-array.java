@@ -1,15 +1,15 @@
 class Solution {
     public int waysToSplitArray(int[] nums) {
-        long totalSum = 0;
-        for(int num : nums) {
-            totalSum += num;
+        int n = nums.length;
+        long sum=0;
+        long[] prefixSum = new long[n];
+        for(int i=0;i<n;i++){
+            sum=sum+nums[i];
+            prefixSum[i]=sum;
         }
-        long leftSum = 0;
-        int count = 0;
-        for(int i = 0; i < nums.length - 1; i++) {
-            leftSum += nums[i];
-            long rightSum = totalSum - leftSum;
-            if(leftSum >= rightSum) {
+        int count=0;
+        for(int i=0;i<n-1;i++){
+            if(prefixSum[i]>=prefixSum[n-1]-prefixSum[i]){
                 count++;
             }
         }
