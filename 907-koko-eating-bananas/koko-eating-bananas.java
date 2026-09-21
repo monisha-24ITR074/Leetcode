@@ -1,11 +1,11 @@
 class Solution {
     public int minEatingSpeed(int[] piles, int h) {
-        int left =1;
+        int left = 1;
         int right = getMax(piles);
         int ans=right;
         while(left<=right){
             int mid=left+(right-left)/2;
-            if(canFinish(piles,h,mid)){
+            if(canFound(piles,h,mid)){
                 ans=mid;
                 right=mid-1;
             }
@@ -15,21 +15,21 @@ class Solution {
         }
         return ans;
     }
-    private boolean canFinish(int[] piles,int h,int k){
+    private boolean canFound(int[] piles,int h,int k){
         int hours=0;
         for(int pile : piles){
-            hours += pile/k;
-            if(pile % k != 0){
+            hours+=pile/k;
+            if(pile%k!=0){
                 hours++;
             }
-            if(hours>h) return false;
+            if(hours > h) return false;
         }
         return true;
     }
     private int getMax(int[] piles){
-        int max = 0;
+        int max=0;
         for(int pile : piles){
-            max = Math.max(max, pile);
+            max=Math.max(max,pile);
         }
         return max;
     }
